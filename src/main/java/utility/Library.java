@@ -7,6 +7,7 @@ import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -21,6 +22,10 @@ import net.sourceforge.tess4j.Tesseract;
 import net.sourceforge.tess4j.TesseractException;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.pdfbox.cos.COSDocument;
+import org.apache.pdfbox.pdfparser.PDFParser;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.util.PDFTextStripper;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -583,7 +588,32 @@ public class Library extends WebBaseClass{
 	      }
 	          
 		}
+	}
+		
+		public boolean verifyPDFText(String filename,String texttoverify) throws FileNotFoundException, IOException
+		{
+			Boolean flag=false;
+			PDFTextStripper pdfStripper = null;
+			PDDocument pdDoc = null;
+			COSDocument cosDoc = null;
+			File file = new File(filename);
+
+			PDFParser parser = new PDFParser(new FileInputStream(file));
+			parser.parse();
+			cosDoc = parser.getDocument();
+			pdfStripper = new PDFTextStripper();
+			pdDoc = new PDDocument(cosDoc);
+			String parsedText = pdfStripper.getText(pdDoc);
+			//System.out.println(parsedText);		
+			
+			if(parsedText.contains(texttoverify)) {
+				flag=true;
+			}
+			
+			return flag;
+			
 		}
+		
 		
 			
 	

@@ -3,15 +3,11 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="TestScenarios.DemoVtigettest">
+      <class name="TestScenarios.ExtractPDF">
         <methods>
-          <include name="endTestCase"/>
-          <include name="testLoginvtiger"/>
-          <include name="VerifyTitle"/>
-          <include name="tearDown"/>
-          <include name="LogOut"/>
+          <include name="ExtractPDF"/>
         </methods>
-      </class> <!-- TestScenarios.DemoVtigettest -->
+      </class> <!-- TestScenarios.ExtractPDF -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
