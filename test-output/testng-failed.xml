@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="TestScenarios.ExtractPDF">
+      <class name="TestScenarios.ImageComparision">
         <methods>
-          <include name="ExtractPDF"/>
+          <include name="ImageComparision"/>
         </methods>
-      </class> <!-- TestScenarios.ExtractPDF -->
+      </class> <!-- TestScenarios.ImageComparision -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
